@@ -1,0 +1,21 @@
+version: "1.0"
+
+services:
+    app:
+        build: .
+        image: useit
+        ports:
+            - "8080:80"
+        networks:
+            - mynetwork
+
+    db:
+        build: "./db/."
+        image: db_useit
+        ports:
+            - "3000:3000"
+        networks:
+            - mynetwork
+
+networks:
+    mynetwork:
