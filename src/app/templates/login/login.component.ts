@@ -7,6 +7,7 @@ import { apiRequestI } from '@interfaces/user.interface';
 // Import services
 import { UsersAuthService } from '@services/user-auth/users-auth.service';
 import { UserStateService } from '@services/user-state/user-state.service';
+import { UiStateService } from '@services/ui-state/ui-state.service';
 
 // Operators rxjs
 import { take } from 'rxjs/operators';
@@ -33,6 +34,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 	constructor(
 		private usersAuthService: UsersAuthService,
 		private userStateService: UserStateService,
+		private uiStateService: UiStateService,
 		private router: Router,
 	) {
 		userStateService.sharingObservableObserver
@@ -42,11 +44,21 @@ export class LoginComponent implements OnInit, OnDestroy {
 					this.router.navigate(['/hello']);
 				}
 			});
+
+		uiStateService.sharingObservableObserver.subscribe((res) =>
+			console.log(res),
+		);
 	}
 
 	ngOnInit(): void {}
 
 	handlerSubmit(): void {
+		// put the app in loading state
+		this.uiStateService.sharingObservableData = {
+			...this.uiStateService.sharingObservableValue,
+			loading: true,
+		};
+
 		this.usersAuthService
 			.authenticateUser(this.user.username, this.user.password)
 			.pipe(take(1))
@@ -55,10 +67,30 @@ export class LoginComponent implements OnInit, OnDestroy {
 					if (response.length == 1) {
 						this.userStateService.sharingObservableData =
 							response[0];
+
+						// No more loading state
+						this.uiStateService.sharingObservableData = {
+							...this.uiStateService.sharingObservableValue,
+							loading: false,
+						};
 					} else {
+						// Error no one at the dbs match with the data
+						this.uiStateService.sharingObservableData = {
+							error: true,
+							errorProblem:
+								'Your username or password is incorrect',
+							loading: false,
+						};
 					}
 				},
-				(err) => console.log('ERROR'),
+				(err) =>
+					// error with the db response
+					(this.uiStateService.sharingObservableData = {
+						error: true,
+						errorProblem:
+							'We have internal problems, try again later',
+						loading: false,
+					}),
 			);
 	}
 
