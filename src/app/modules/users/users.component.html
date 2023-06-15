@@ -1,0 +1,24 @@
+<section class="container">
+	<h2 class="container__title">Lista de usuarios:</h2>
+
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nombre</th>
+				<th>Edad</th>
+				<th>Username</th>
+				<th class="last-cell">DetailsBT</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let user of users">
+				<td>{{ user.id }}</td>
+				<td>{{ user.name }}</td>
+				<td>{{ user.age }}</td>
+				<td>{{ user.userName }}</td>
+				<td class="last-cell">johndoe</td>
+			</tr>
+		</tbody>
+	</table>
+</section>

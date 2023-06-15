@@ -10,11 +10,19 @@ import { LoginComponent } from './templates/login/login.component';
 const routes: Routes = [
 	{
 		path: '',
+		// Global component at the app
 		component: MainComponent,
 		children: [
 			{
 				path: '',
 				component: LoginComponent,
+			},
+			{
+				path: 'users',
+				loadChildren: () =>
+					import('@modules/users/users.module').then(
+						(m) => m.UsersModule,
+					),
 			},
 		],
 	},

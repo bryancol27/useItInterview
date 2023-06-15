@@ -21,7 +21,8 @@
 		"lib": ["es2020", "dom"],
 		"paths": {
 			"@interfaces/*": ["./src/app/interfaces/*"],
-			"@services/*": ["./src/app/services/*"]
+			"@services/*": ["./src/app/services/*"],
+			"@modules/*": ["./src/app/modules/*"]
 		}
 	},
 	"angularCompilerOptions": {

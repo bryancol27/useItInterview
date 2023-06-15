@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 // Interfaces
-import { apiRequestI } from '@interfaces/user.interface';
+import { apiRequestI, apiResponseIbase } from '@interfaces/user.interface';
 
 @Injectable({
 	providedIn: 'root',
@@ -22,5 +22,11 @@ export class UsersAuthService {
 		const stringAPI = `http://localhost:3000/users?userName=${username}&password=${password}`;
 
 		return this.http.get<apiRequestI[]>(stringAPI);
+	}
+
+	getAllUsers(): Observable<apiResponseIbase[]> {
+		const stringAPI = 'http://localhost:3000/users';
+
+		return this.http.get<apiResponseIbase[]>(stringAPI);
 	}
 }

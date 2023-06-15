@@ -1,0 +1,50 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 30px;
+
+	&__title {
+		font-size: 6rem;
+		color: white;
+		opacity: 0.9;
+		text-align: center;
+		font-weight: bold;
+	}
+
+	table {
+		padding: 20px 30px;
+		border-radius: 15px;
+
+		background: rgba(12, 12, 12, 0.3);
+		box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+		tr {
+			font-size: 5rem;
+			color: white;
+			th {
+				padding: 0 0 0 10px;
+				text-align: start;
+				color: rgba(255, 255, 255, 0.253);
+
+				border-bottom: 1px solid rgba(235, 235, 245, 0.6);
+				border-right: 1px solid rgba(235, 235, 245, 0.6);
+			}
+			td {
+				box-sizing: border-box;
+				padding: 15px 0 0 10px;
+				width: 240px;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				white-space: nowrap;
+
+				border-bottom: 1px solid rgba(235, 235, 245, 0.6);
+
+				border-right: 1px solid rgba(235, 235, 245, 0.6);
+			}
+			.last-cell {
+				border-right: none;
+			}
+		}
+	}
+}

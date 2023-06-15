@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 			.pipe(takeUntil(this.componentDestroyed))
 			.subscribe((R) => {
 				if (R) {
-					this.router.navigate(['/hello']);
+					this.router.navigate(['/users']);
 				}
 			});
 	}
