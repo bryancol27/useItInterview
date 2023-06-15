@@ -7,4 +7,40 @@ main {
 	height: 100%;
 
 	position: relative;
+	z-index: 4;
+}
+
+@keyframes fadein {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+		z-index: 5;
+	}
+}
+@keyframes fadeout {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+		z-index: -1;
+	}
+}
+
+.loader {
+	opacity: 0;
+
+	z-index: -1;
+}
+
+.goingToVissible {
+	// opacity: 1;
+	animation: fadein 2s ease 0s 1 forwards;
+}
+.goingToHidden {
+	opacity: 1;
+	z-index: 5;
+	animation: fadeout 3s ease 0s 1 forwards;
 }

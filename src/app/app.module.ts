@@ -14,6 +14,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 // Templates
 import { MainComponent } from './templates/main/main.component';
 import { LoginComponent } from './templates/login/login.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
 	declarations: [
@@ -21,6 +22,7 @@ import { LoginComponent } from './templates/login/login.component';
 		NavbarComponent,
 		MainComponent,
 		LoginComponent,
+		LoaderComponent,
 	],
 	imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
 	providers: [],

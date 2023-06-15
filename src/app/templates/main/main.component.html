@@ -3,3 +3,12 @@
 <main>
 	<router-outlet></router-outlet>
 </main>
+
+<!-- *ngIf="uiState?.loading" -->
+<app-loader
+	class="loader"
+	[ngClass]="{
+		goingToVissible: this.uiState?.loading,
+		goingToHidden: !this.uiState?.loading
+	}"
+></app-loader>

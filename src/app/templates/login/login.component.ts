@@ -20,8 +20,6 @@ import { Subject } from 'rxjs';
 	styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit, OnDestroy {
-	// UI VARIABLES
-
 	// NG MODEL STRUCT:
 	user: apiRequestI = {
 		username: '',
@@ -44,10 +42,6 @@ export class LoginComponent implements OnInit, OnDestroy {
 					this.router.navigate(['/hello']);
 				}
 			});
-
-		uiStateService.sharingObservableObserver.subscribe((res) =>
-			console.log(res),
-		);
 	}
 
 	ngOnInit(): void {}
