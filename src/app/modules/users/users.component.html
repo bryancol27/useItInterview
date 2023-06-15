@@ -17,7 +17,11 @@
 				<td>{{ user.name }}</td>
 				<td>{{ user.age }}</td>
 				<td>{{ user.userName }}</td>
-				<td class="last-cell">johndoe</td>
+				<td class="last-cell">
+					<a [routerLink]="'/users/details/' + user.id" appTouchlink
+						>Más información</a
+					>
+				</td>
 			</tr>
 		</tbody>
 	</table>
