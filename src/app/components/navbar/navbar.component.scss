@@ -1,0 +1,52 @@
+.nav {
+	width: 100%;
+	height: 65px;
+
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+		rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(67.955px);
+
+	margin-bottom: 75px;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 75px;
+
+	position: relative;
+	z-index: 2;
+
+	&__title {
+		font-size: 3.5rem;
+		color: #7a6a80;
+		font-style: italic;
+	}
+
+	&__disconnectBt {
+		width: 125px;
+		height: 40px;
+
+		font-size: 1.5rem;
+		color: white;
+
+		border-radius: 20px;
+
+		cursor: pointer;
+
+		background: linear-gradient(
+			90.1deg,
+			rgba(86, 124, 158, 0.9) 3.57%,
+			rgba(137, 160, 178, 0.9) 61.03%,
+			rgba(98, 126, 133, 0.9) 102.72%
+		);
+		box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+		backdrop-filter: blur(67.955px);
+
+		border: none;
+
+		transition: 0.5s all;
+		&:hover {
+			transform: scale(0.9);
+		}
+	}
+}

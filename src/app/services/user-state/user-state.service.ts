@@ -4,17 +4,17 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 // Import interfaces
-import { apiRequestI } from '@interfaces/user.interface';
+import { apiResponseIbase } from '@interfaces/user.interface';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class UserStateService {
 	// Initial state
-	is!: apiRequestI;
+	is!: apiResponseIbase;
 
-	private sharingObservablePrivate: BehaviorSubject<apiRequestI> =
-		new BehaviorSubject<apiRequestI>(this.is);
+	private sharingObservablePrivate: BehaviorSubject<apiResponseIbase> =
+		new BehaviorSubject<apiResponseIbase>(this.is);
 	constructor() {}
 
 	// This method get the observer for this prop
@@ -23,7 +23,11 @@ export class UserStateService {
 	}
 
 	// This method set the info for the global context
-	set sharingObservableData(res: apiRequestI) {
+	set sharingObservableData(res: apiResponseIbase) {
 		this.sharingObservablePrivate.next(res);
+	}
+
+	LogOut(): void {
+		this.sharingObservableData = this.is;
 	}
 }

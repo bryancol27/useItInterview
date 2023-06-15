@@ -28,13 +28,13 @@ export class UsersComponent implements OnInit {
 		private usersAuthService: UsersAuthService,
 		private router: Router,
 	) {
-		// this.userStateService.sharingObservableObserver
-		// 	.pipe(takeUntil(this.componentDestroyed))
-		// 	.subscribe((res) => {
-		// 		if (!res) {
-		// 			this.router.navigate(['/']);
-		// 		}
-		// 	});
+		this.userStateService.sharingObservableObserver
+			.pipe(takeUntil(this.componentDestroyed))
+			.subscribe((res) => {
+				if (!res) {
+					this.router.navigate(['/']);
+				}
+			});
 
 		this.usersAuthService
 			.getAllUsers()

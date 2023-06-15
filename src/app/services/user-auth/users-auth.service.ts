@@ -18,10 +18,10 @@ export class UsersAuthService {
 	authenticateUser(
 		username: string,
 		password: string,
-	): Observable<apiRequestI[]> {
+	): Observable<apiResponseIbase[]> {
 		const stringAPI = `http://localhost:3000/users?userName=${username}&password=${password}`;
 
-		return this.http.get<apiRequestI[]>(stringAPI);
+		return this.http.get<apiResponseIbase[]>(stringAPI);
 	}
 
 	getAllUsers(): Observable<apiResponseIbase[]> {
