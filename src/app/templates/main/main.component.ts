@@ -19,9 +19,10 @@ export class MainComponent implements OnInit {
 		errorProblem: '',
 	};
 	constructor(private uiStateService: UiStateService) {
-		this.uiStateService.sharingObservableObserver.subscribe(
-			(res) => (this.uiState = res),
-		);
+		this.uiStateService.sharingObservableObserver.subscribe((res) => {
+			console.log(res);
+			this.uiState = res;
+		});
 	}
 
 	ngOnInit(): void {}

@@ -15,6 +15,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { MainComponent } from './templates/main/main.component';
 import { LoginComponent } from './templates/login/login.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { ErrorMessageComponent } from './components/error-message/error-message.component';
 
 @NgModule({
 	declarations: [
@@ -23,6 +24,7 @@ import { LoaderComponent } from './components/loader/loader.component';
 		MainComponent,
 		LoginComponent,
 		LoaderComponent,
+		ErrorMessageComponent,
 	],
 	imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
 	providers: [],

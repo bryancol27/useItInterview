@@ -4,11 +4,24 @@
 	<router-outlet></router-outlet>
 </main>
 
-<!-- *ngIf="uiState?.loading" -->
-<app-loader
-	class="loader"
-	[ngClass]="{
-		goingToVissible: this.uiState?.loading,
-		goingToHidden: !this.uiState?.loading
-	}"
-></app-loader>
+<!-- Loader component -->
+
+<!-- *Directive to know if the state exists -->
+<div *ngIf="this.uiState">
+	<!-- App component -->
+	<app-loader
+		class="loader"
+		[ngClass]="{
+			goingToVissible: this.uiState.loading,
+			goingToHidden: !this.uiState.loading
+		}"
+	></app-loader>
+	<!-- Error component -->
+	<app-error-message
+		[messageError]="this.uiState.errorProblem"
+		*ngIf="this.uiState.error"
+		[ngClass]="{
+			goingToVissible: this.uiState.error
+		}"
+	></app-error-message>
+</div>

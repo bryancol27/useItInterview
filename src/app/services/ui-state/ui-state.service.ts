@@ -35,7 +35,11 @@ export class UiStateService {
 		// Delete errors by passed time
 		if (res.error && res.errorProblem != '') {
 			setTimeout(() => {
-				this.sharingObservablePrivate.next(this.is);
+				this.sharingObservablePrivate.next({
+					error: false,
+					errorProblem: '',
+					loading: false,
+				});
 			}, 3000);
 		}
 	}
