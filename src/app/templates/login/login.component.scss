@@ -1,0 +1,87 @@
+.container {
+	width: 500px;
+	padding: 30px 45px;
+
+	background: rgba(12, 12, 12, 0.3);
+	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 24px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 75px;
+
+	&__title {
+		font-size: 6rem;
+		color: white;
+		opacity: 0.9;
+		text-align: center;
+		font-weight: bold;
+	}
+
+	&__form {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+
+		&__boxinput {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+
+			label {
+				font-size: 2.5rem;
+				color: rgba(235, 235, 245, 0.6);
+			}
+
+			input {
+				height: 40px;
+
+				background: linear-gradient(
+					90.1deg,
+					rgba(64, 116, 140, 0.9) 3.57%,
+					rgba(95, 129, 147, 0.9) 42.36%,
+					rgba(128, 120, 153, 0.9) 70.77%,
+					rgba(134, 112, 132, 0.9) 102.72%
+				);
+				box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+				backdrop-filter: blur(67.955px);
+
+				border: none;
+				border-radius: 24px;
+				padding: 0 0 0 15px;
+
+				&::placeholder,
+				& {
+					font-size: 2rem;
+					color: white;
+				}
+			}
+		}
+	}
+}
+
+.submit {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 300px;
+	height: 74px;
+
+	background: rgba(255, 255, 255, 0.2);
+	border-radius: 60px;
+	border: none;
+
+	cursor: pointer;
+
+	font-size: 17px;
+	font-weight: bold;
+	color: white;
+
+	transition: all 0.4s;
+	&:hover {
+		transform: scale(1.1);
+	}
+}

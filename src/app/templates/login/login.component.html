@@ -1,0 +1,35 @@
+<section class="container">
+	<h2 class="container__title">Ingresa aquí</h2>
+
+	<form class="container__form">
+		<div class="container__form__boxinput">
+			<label for="username">Username:</label>
+			<input
+				type="text"
+				id="username"
+				name="username"
+				[(ngModel)]="user.username"
+				required
+				autocomplete="username"
+				placeholder="Your username"
+			/>
+		</div>
+
+		<div class="container__form__boxinput">
+			<label for="password">Password:</label>
+			<input
+				type="password"
+				id="password"
+				name="password"
+				[(ngModel)]="user.password"
+				required
+				autocomplete="current-password"
+				placeholder="**************"
+			/>
+		</div>
+	</form>
+
+	<button class="contenedor" class="submit" (click)="handlerSubmit()">
+		Ingresar
+	</button>
+</section>
