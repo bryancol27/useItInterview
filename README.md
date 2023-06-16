@@ -1,3 +1,33 @@
+# ¿Cómo correr el proyecto PROD?
+
+Primero clona el proyecto.
+
+## Tienes dos formas:
+
+1. Docker
+2. Manera tradicional
+
+### Docker:
+
+> Para docker solo ejecuta los siguientes comandos en la terminal (recuerda tener docker instalado)
+
+```
+// Construye las imagenes del docker compose:
+docker-compose build
+// Levanta los entornos locales:
+docker-compose up
+```
+
+La aplicación estará en la ruta `http://localhost:8080/` y la fake API en `http://localhost:3000/users`.
+
+### Manera tradicional:
+
+-   Instala dependencias `npm i`
+-   Instala json-server `npm install -g json-server`
+-   Levanta la fake API `json-server --watch ./db/db.json`
+-   Genera el build de la aplicación `npm run build`
+-   Corre el HTML que quedo en la carpeta `./dist`
+
 # UseItInterview
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.5.
