@@ -7,6 +7,7 @@ import { Subject, take, takeUntil } from 'rxjs';
 // Import services
 import { UsersAuthService } from '@services/user-auth/users-auth.service';
 import { UserStateService } from '@services/user-state/user-state.service';
+import { UiStateService } from '@services/ui-state/ui-state.service';
 
 // Import interfaces
 import { apiResponseIbase } from '@interfaces/user.interface';
@@ -26,6 +27,7 @@ export class UsersComponent implements OnInit {
 	constructor(
 		private userStateService: UserStateService,
 		private usersAuthService: UsersAuthService,
+		private uiStateService: UiStateService,
 		private router: Router,
 	) {
 		this.userStateService.sharingObservableObserver
@@ -41,7 +43,16 @@ export class UsersComponent implements OnInit {
 			.pipe(take(1))
 			.subscribe(
 				(res) => (this.users = res),
-				(err) => console.log(err),
+				(err) => {
+					this.uiStateService.sharingObservableData = {
+						error: true,
+						errorProblem:
+							'We have internal problems, try again later',
+						loading: false,
+					};
+
+					this.userStateService.LogOut();
+				},
 			);
 	}
 

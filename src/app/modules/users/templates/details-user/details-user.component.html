@@ -1,1 +1,23 @@
-<p>details-user works!</p>
+<section class="container">
+	<h2 class="container__title">Información usuario:</h2>
+
+	<article class="container__description" *ngIf="this.currentUser">
+		<div class="container__description__atribute">
+			<h3>ID:</h3>
+			<p>{{ this.currentUser.id }}</p>
+		</div>
+		<div class="container__description__atribute">
+			<h3>Nombre:</h3>
+			<p>{{ this.currentUser.name }}</p>
+		</div>
+		<div class="container__description__atribute">
+			<h3>age:</h3>
+			<p>{{ this.currentUser.age }}</p>
+		</div>
+		<div class="container__description__atribute">
+			<h3>Username:</h3>
+			<p>{{ this.currentUser.name }}</p>
+		</div>
+		<a routerLink="/users" class="container-return_users">Volver atras</a>
+	</article>
+</section>
